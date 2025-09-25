@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView resultado;
 
+    double media;
+
     private String nome;
 
     @Override
@@ -50,22 +52,20 @@ public class MainActivity extends AppCompatActivity {
         double n2 = Double.parseDouble(nota2.getText().toString());
         double n3 = Double.parseDouble(nota3.getText().toString());
         double n4 = Double.parseDouble(nota4.getText().toString());
-        double media = (n1 + n2 + n3 + n4) / 4;
+        media = (n1 + n2 + n3 + n4) / 4;
         double faltas = Double.parseDouble(numerofaltas.getText().toString());
 
-        if ( media > 7){
-            if ( faltas < 20){
+        if (media > 7) {
+            if (faltas < 20) {
                 resultado.setTextColor(Color.parseColor("#437845"));
                 resultado.setText("Aluno Aprovado com media" + media);
             }
-        }else{
+        } else {
             resultado.setTextColor(Color.parseColor("#f44336"));
             resultado.setText("Excesso de falta " + faltas);
         }
-    }else{
-        resultado.setTextColor(Color.parseColor("#f44336"));
-        resultado.setText("Aluno Retido com media " + media);
     }
+
     private void validaCampos() {
         if (TextUtils.isEmpty(nota1.getText())) {
             // O campo esta vazio ou contem apenas espaços em branco
